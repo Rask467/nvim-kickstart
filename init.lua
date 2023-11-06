@@ -114,7 +114,7 @@ require('lazy').setup({
   },
 
   -- Useful plugin to show you pending keybinds.
-  { 'folke/which-key.nvim', opts = {} },
+  { 'folke/which-key.nvim',  opts = {} },
   {
     -- Adds git related signs to the gutter, as well as utilities for managing changes
     'lewis6991/gitsigns.nvim',
@@ -222,7 +222,7 @@ require('lazy').setup({
   -- NOTE: Next Step on Your Neovim Journey: Add/Configure additional "plugins" for kickstart
   --       These are some example plugins that I've included in the kickstart repository.
   --       Uncomment any of the lines below to enable them.
-  -- require 'kickstart.plugins.autoformat',
+  require 'kickstart.plugins.autoformat',
   -- require 'kickstart.plugins.debug',
 
   -- NOTE: The import below can automatically add your own plugins, configuration, etc from `lua/custom/plugins/*.lua`
@@ -300,7 +300,7 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 vim.keymap.set('n', '<leader>;;', require('harpoon.ui').toggle_quick_menu, { desc = 'Toggle [H]arpoon [H]ome' })
 vim.keymap.set('n', '<leader>;m', require('harpoon.mark').add_file, { desc = 'Add [H]arpoon [M]ark' })
 vim.keymap.set('n', '<leader>;1', function() require('harpoon.ui').nav_file(1) end, { desc = 'Go to [H]arpoon [1]' })
-vim.keymap.set('n', '<leader>;2', function () require('harpoon.ui').nav_file(2) end, { desc = 'Go to [H]arpoon [2]' })
+vim.keymap.set('n', '<leader>;2', function() require('harpoon.ui').nav_file(2) end, { desc = 'Go to [H]arpoon [2]' })
 vim.keymap.set('n', '<leader>;3', function() require('harpoon.ui').nav_file(3) end, { desc = 'Go to [H]arpoon [3]' })
 vim.keymap.set('n', '<leader>;4', function() require('harpoon.ui').nav_file(4) end, { desc = 'Go to [H]arpoon [4]' })
 
@@ -345,7 +345,8 @@ vim.keymap.set('n', '<leader>sr', require('telescope.builtin').resume, { desc = 
 vim.defer_fn(function()
   require('nvim-treesitter.configs').setup {
     -- Add languages to be installed here that you want installed for treesitter
-    ensure_installed = { 'c', 'cpp', 'go', 'lua', 'python', 'rust', 'tsx', 'javascript', 'typescript', 'vimdoc', 'vim', 'bash' },
+    ensure_installed = { 'c', 'cpp', 'go', 'lua', 'python', 'rust', 'tsx', 'javascript', 'typescript', 'vimdoc', 'vim',
+      'bash', 'prisma' },
 
     -- Autoinstall languages that are not installed. Defaults to false (but you can change for yourself!)
     auto_install = false,
@@ -490,7 +491,7 @@ local servers = {
   -- pyright = {},
   -- rust_analyzer = {},
   tsserver = {},
-  html = { filetypes = { 'html', 'twig', 'hbs'} },
+  html = { filetypes = { 'html', 'twig', 'hbs' } },
 
   prismals = {},
 
