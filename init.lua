@@ -76,8 +76,6 @@ require('lazy').setup({
   'tpope/vim-sleuth',
   'github/copilot.vim',
 
-  'ThePrimeagen/harpoon',
-
   -- NOTE: This is where your plugins related to LSP can be installed.
   --  The configuration is done below. Search for lspconfig to find it below.
   {
@@ -296,14 +294,6 @@ vim.api.nvim_create_autocmd('TextYankPost', {
   pattern = '*',
 })
 
--- [[ Configure Harpoon ]]
-vim.keymap.set('n', '<leader>;;', require('harpoon.ui').toggle_quick_menu, { desc = 'Toggle [H]arpoon [H]ome' })
-vim.keymap.set('n', '<leader>;m', require('harpoon.mark').add_file, { desc = 'Add [H]arpoon [M]ark' })
-vim.keymap.set('n', '<leader>;1', function() require('harpoon.ui').nav_file(1) end, { desc = 'Go to [H]arpoon [1]' })
-vim.keymap.set('n', '<leader>;2', function() require('harpoon.ui').nav_file(2) end, { desc = 'Go to [H]arpoon [2]' })
-vim.keymap.set('n', '<leader>;3', function() require('harpoon.ui').nav_file(3) end, { desc = 'Go to [H]arpoon [3]' })
-vim.keymap.set('n', '<leader>;4', function() require('harpoon.ui').nav_file(4) end, { desc = 'Go to [H]arpoon [4]' })
-
 -- [[ Configure Telescope ]]
 -- See `:help telescope` and `:help telescope.setup()`
 require('telescope').setup {
@@ -469,7 +459,6 @@ require('which-key').register {
   ['<leader>r'] = { name = '[R]ename', _ = 'which_key_ignore' },
   ['<leader>s'] = { name = '[S]earch', _ = 'which_key_ignore' },
   ['<leader>w'] = { name = '[W]orkspace', _ = 'which_key_ignore' },
-  ['<leader>;'] = { name = 'Harpoon', _ = 'which_key_ignore' },
 }
 
 -- mason-lspconfig requires that these setup functions are called in this order
